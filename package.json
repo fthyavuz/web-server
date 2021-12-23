@@ -1,14 +1,14 @@
 {
   "name": "web-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "getting weather data according to given location",
+  "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js -e js,hbs"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["node.js","API","express","weather-data"],
+  "author": "Fatih Yavuz",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
