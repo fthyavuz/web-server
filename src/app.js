@@ -7,7 +7,7 @@ const forecast = require('./utils/forecast')
 const app = express()
 
 // define port
-const port = process.env.PORT || 3000
+//const port = process.env.PORT || 3000
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname,'../public')
@@ -22,6 +22,7 @@ hbs.registerPartials(partialPath)
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
+// handle index file
 app.get('',(req,res)=>{
     res.render('index',{
         title:'Weather',
@@ -29,6 +30,7 @@ app.get('',(req,res)=>{
     })
 })
 
+// handle help page
 app.get('/help',(req,res)=>{
     res.render('help',{
         helpText:'Some help text',
@@ -37,6 +39,7 @@ app.get('/help',(req,res)=>{
     })
 })
 
+// handle about page
 app.get('/about',(req,res)=>{
     res.render('about',{
         title:'About Me',
@@ -44,6 +47,7 @@ app.get('/about',(req,res)=>{
     })
 })
 
+// handle weather data
 app.get('/weather',(req,res)=>{
 
     const address = req.query.address
@@ -88,6 +92,7 @@ app.get('/help/*',(req,res)=>{
     })
 })
 
+// handle 404 pages
 app.get('*',(req,res)=>{
     res.render('404',{
         title:404,
@@ -97,7 +102,7 @@ app.get('*',(req,res)=>{
     })
 })
 
-
-app.listen(port,()=>{
-    console.log('The server is up on port ' + port)
+// start the server
+app.listen(process.env.PORT,()=>{
+    console.log('The server is up on port ' + process.env.PORT)
 })

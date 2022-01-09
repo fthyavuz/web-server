@@ -2,8 +2,7 @@ const request = require('postman-request')
 
 
 const geocode = (address,callback)=>{
-    url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+ encodeURIComponent(address) + '.json?access_token=pk.eyJ1IjoiaWJyYWhpbWZhdGloIiwiYSI6ImNrd2pwZHN4ajExZmMyb28weHpiMzJxeXAifQ.9udpuC1DXzB8rS7EbPx06A&limit=1'
-
+    url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+ encodeURIComponent(address) + `.json?access_token=${process.env.ACCESS_KEY_MAP}&limit=1`
     request({url,json:true},(error,{ body })=>{
         if(error){
             callback('Unable to connect to location service',undefined)

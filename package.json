@@ -5,18 +5,23 @@
   "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js -e js,hbs"
+    "dev": "env-cmd -f ./config/dev.env nodemon src/app.js -e js,hbs"
   },
-  "keywords": ["node.js","API","express","weather-data"],
+  "keywords": [
+    "node.js",
+    "API",
+    "express",
+    "weather-data"
+  ],
   "author": "Fatih Yavuz",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "hbs": "^4.2.0",
     "postman-request": "^2.88.1-postman.30"
-    
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "nodemon": "^2.0.15"
   }
 }
